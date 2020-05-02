@@ -1,4 +1,4 @@
-package tech.appclub.arslan.checkoutsystem
+package tech.appclub.arslan.checkoutsystem.data
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -9,5 +9,5 @@ data class Item(
     var id: Int? = null,
     var image: String? = null,
     var name: String? = null,
-    var price: String? = null
+    var price: Double? = null
 )
