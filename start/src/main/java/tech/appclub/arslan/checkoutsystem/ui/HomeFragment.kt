@@ -1,10 +1,11 @@
-package tech.appclub.arslan.checkoutsystem
+package tech.appclub.arslan.checkoutsystem.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import tech.appclub.arslan.checkoutsystem.R
 
 /**
  * A simple [Fragment] subclass.
