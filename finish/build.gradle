@@ -4,8 +4,8 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 'android-R'
-    buildToolsVersion = '29.0.3'
+    compileSdkVersion 29
+    buildToolsVersion = '30.0.0 rc2'
 
     defaultConfig {
         applicationId "tech.appclub.arslan.finish"
@@ -25,8 +25,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = kotlin_version
-        targetCompatibility = kotlin_version
+        sourceCompatibility = "1.8"
+        targetCompatibility = "1.8"
     }
 
     dataBinding {
