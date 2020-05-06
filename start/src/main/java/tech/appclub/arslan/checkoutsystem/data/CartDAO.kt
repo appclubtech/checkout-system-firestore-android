@@ -8,13 +8,13 @@ import androidx.room.Query
 @Dao
 interface CartDAO {
 
-    @Query("SELECT * FROM items_table ORDER BY name ASC")
-    fun getAllItems(): LiveData<List<Item>>
+    @Query("SELECT * FROM cart_table ORDER BY name ASC")
+    fun getAllItems(): LiveData<List<Cart>>
 
-    @Query("DELETE FROM items_table")
+    @Query("DELETE FROM cart_table")
     suspend fun deleteAllItems()
 
     @Insert
-    suspend fun insert(item: Item)
+    suspend fun insert(cart: Cart)
 
 }
