@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="checkout"
             type="tech.appclub.arslan.checkoutsystem.CheckoutFragment" />
@@ -12,13 +13,13 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".CheckoutFragment"
-        android:layout_margin="16dp">
+        tools:context=".CheckoutFragment">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="16dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -39,9 +40,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="end"
+                    android:text="@string/total_cart_amount"
                     android:textAppearance="@android:style/TextAppearance.Material.Medium"
-                    android:textColor="@android:color/black"
-                    android:text="@string/total_cart_amount" />
+                    android:textColor="@android:color/black" />
 
             </LinearLayout>
 
@@ -64,9 +65,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="end"
+                    android:text="@string/delivery_charges"
                     android:textAppearance="@android:style/TextAppearance.Material.Medium"
-                    android:textColor="@android:color/black"
-                    android:text="@string/delivery_charges" />
+                    android:textColor="@android:color/black" />
 
             </LinearLayout>
 
@@ -100,6 +101,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
+                    android:maxLength="255"
                     android:singleLine="true"
                     android:textColor="@android:color/black" />
 
@@ -124,7 +126,8 @@
                     android:id="@+id/contact_value"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number|phone" />
+                    android:inputType="number|phone"
+                    android:maxLength="20" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -147,6 +150,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/address_value"
                     android:layout_width="match_parent"
+                    android:maxLength="510"
                     android:layout_height="wrap_content"
                     android:inputType="textPostalAddress" />
 
@@ -246,20 +250,21 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="4dp"
+                android:text="@string/amount_grand_total"
                 android:textAppearance="@android:style/TextAppearance.Material.Large"
-                android:textColor="@android:color/black"
-                tools:text="$110" />
+                android:textColor="@android:color/black" />
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                app:backgroundTint="@android:color/white"
-                app:strokeWidth="1dp"
-                app:strokeColor="@color/colorPrimaryDark"
-                android:textColor="@color/colorPrimaryDark"
                 android:layout_marginTop="16dp"
-                android:text="@string/place_order" />
+                android:text="@string/place_order"
+                android:onClick="@{() -> checkout.checkout()}"
+                android:textColor="@color/colorPrimaryDark"
+                app:backgroundTint="@android:color/white"
+                app:strokeColor="@color/colorPrimaryDark"
+                app:strokeWidth="1dp" />
 
         </LinearLayout>
 

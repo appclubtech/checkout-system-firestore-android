@@ -5,55 +5,71 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CompoundButton
+import androidx.databinding.DataBindingUtil
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
+import tech.appclub.arslan.checkoutsystem.databinding.FragmentCheckoutBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [CheckoutFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class CheckoutFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var binding: FragmentCheckoutBinding
+
+    private val cartTotal: Double = 2950.0
+    private val deliveryFee: Double = 10.0
+    private val optionalCharges: Double = 5.0
+    private var grandTotal = cartTotal + deliveryFee
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_checkout, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_checkout, container, false)
+        binding.checkout = this
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CheckoutFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CheckoutFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupCheckboxListeners()
+    }
+
+    fun checkout() {
+
+        val name = binding.nameValue.text.toString()
+        if (validateEmpty(name, binding.nameInput)) return
+
+        val contact = binding.contactValue.text.toString()
+        if (validateEmpty(contact, binding.contactInput)) return
+
+        val address = binding.addressValue.text.toString()
+        if (validateEmpty(address, binding.addressInput)) return
+
+    }
+
+    private fun validateEmpty(value: String, inputLayout: TextInputLayout): Boolean {
+        return if (value.isEmpty() || value.isBlank()) {
+            inputLayout.error = getString(R.string.err_empty_field)
+            true
+        } else {
+            inputLayout.error = null
+            false
+        }
+    }
+
+    private fun setupCheckboxListeners() {
+        val listener = CompoundButton.OnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                grandTotal += optionalCharges
+                binding.grandTotal.text = String.format("$%.1f", grandTotal)
+            } else {
+                grandTotal -= optionalCharges
+                binding.grandTotal.text = String.format("$%.1f", grandTotal)
             }
+        }
+
+        binding.optionFastDelivery.setOnCheckedChangeListener(listener)
+        binding.optionMutiplePackaging.setOnCheckedChangeListener(listener)
+        binding.optionRecyclableBags.setOnCheckedChangeListener(listener)
     }
 }

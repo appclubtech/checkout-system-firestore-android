@@ -50,11 +50,6 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appbarConfiguration)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return item.onNavDestinationSelected(findNavController(R.id.nav_host_fragment))
-                || super.onOptionsItemSelected(item)
-    }
-
     override fun onSupportNavigateUp(): Boolean {
         return findNavController(R.id.nav_host_fragment).navigateUp(appbarConfiguration)
     }

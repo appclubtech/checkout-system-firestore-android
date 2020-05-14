@@ -13,12 +13,14 @@
     <string name="delivery_information">Delivery Information</string>
     <string name="address">Address</string>
     <string name="optionals">Optionals</string>
-    <string name="optional_services_charges">$5 +</string>
+    <string name="optional_services_charges">$5.0 +</string>
     <string name="fast_delivery">Fast Delivery</string>
     <string name="multiple_packaging">Multiple Packaging</string>
     <string name="recyclable_bags">Recyclable Bags</string>
     <string name="contact_number">Contact</string>
     <string name="place_order">Place Order</string>
-    <string name="delivery_charges">$10</string>
-    <string name="total_cart_amount">$2950</string>
+    <string name="delivery_charges">$10.0</string>
+    <string name="total_cart_amount">$2950.0</string>
+    <string name="amount_grand_total">$2960.0</string>
+    <string name="err_empty_field">Field cannot be empty</string>
 </resources>
