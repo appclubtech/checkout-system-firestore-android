@@ -1,12 +1,16 @@
 package tech.appclub.arslan.checkoutsystem.db
 
 import android.content.Context
+import android.util.Log
+import android.widget.Toast
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import tech.appclub.arslan.checkoutsystem.MainActivity.Companion.LOG_TAG
 import tech.appclub.arslan.checkoutsystem.data.Cart
 import tech.appclub.arslan.checkoutsystem.data.CartDAO
 
