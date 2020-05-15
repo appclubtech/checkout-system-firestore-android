@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "866330486948",
+    "firebase_url": "https://checkout-fa955.firebaseio.com",
+    "project_id": "checkout-fa955",
+    "storage_bucket": "checkout-fa955.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:866330486948:android:fa0333e10b1b719ac09e31",
+        "android_client_info": {
+          "package_name": "tech.appclub.arslan.checkoutsystem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "866330486948-e6n6jiuvjmi2s3ngrck8hkm2p2epreuc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNXULxowwm_cjVf42KmlcVMzrDNvWJeVI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "866330486948-e6n6jiuvjmi2s3ngrck8hkm2p2epreuc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

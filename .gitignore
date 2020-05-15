@@ -59,6 +59,9 @@ captures/
 .externalNativeBuild
 .cxx/
 
+# json
+.json
+
 # Google Services (e.g. APIs or Firebase)
 # google-services.json
 
